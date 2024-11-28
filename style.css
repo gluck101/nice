@@ -1,0 +1,609 @@
+
+/* Container for the buttons */
+.button-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-wrap: wrap; /* Allow buttons to wrap onto the next line */
+  gap: 20px; /* Space between the buttons */
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 20px; /* Add some space at the top */
+}
+
+/* Style for each button */
+.button-container button {
+  padding: 10px 20px; /* Add some padding */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  min-width: 150px; /* Set a minimum width for the buttons */
+}
+
+.button-container button:hover {
+  opacity: 0.8; /* Reduce opacity on hover */
+}
+
+/* For the first two buttons in the first row */
+.button-container button:nth-child(1), .button-container button:nth-child(2) {
+  width: 45%; /* Set width to 45% to fit in the first row */
+}
+
+/* For the second two buttons in the second row */
+.button-container button:nth-child(3), .button-container button:nth-child(4) {
+  width: 45%; /* Set width to 45% to fit in the second row */
+}
+
+
+
+
+
+
+
+
+
+
+.message-item {
+  background-color: #f0f0f5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+/* Main container for Voice Messaging */
+.voice-messaging-section {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Heading */
+.voice-messaging-section h3, 
+.voice-messaging-section h4 {
+  margin: 0 0 10px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Recording Container */
+.recording-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button#record-message-button {
+  background-color: #28a745;
+}
+
+button#record-message-button:hover {
+  background-color: #218838;
+}
+
+button#stop-message-button {
+  background-color: #dc3545;
+}
+
+button#stop-message-button:hover {
+  background-color: #c82333;
+}
+
+button#send-message-button {
+  background-color: #007bff;
+}
+
+button#send-message-button:hover {
+  background-color: #0056b3;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 80%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar #recording-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.1s ease-in-out;
+}
+
+/* Messages Container */
+.messages-container {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#incoming-messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-item {
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.message-item:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  position: relative;
+}
+
+.progress-bar #recording-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.1s linear; /* Smooth animation */
+}
+
+/* Recording Time Text */
+#recording-time-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+/* Container for incoming messages */
+#incoming-messages-container {
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Each message item */
+.message-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.message-item:hover {
+  transform: scale(1.02);
+}
+
+/* Message details */
+.message-item p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Audio player */
+.message-item audio {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* OK button */
+.ok-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0
+    
+    
+}
+    
+
+#daily-analytical-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.daily-analytical-table {
+  width: 90%; /* Adjust the width to make it compact */
+  max-width: 600px; /* Set a maximum width */
+  margin: 0 auto; /* Center the table horizontally */
+  border-collapse: collapse;
+  font-size: 12px; /* Smaller font size for compact design */
+  table-layout: auto; /* Ensure the table columns adjust dynamically */
+}
+
+.daily-analytical-table th,
+.daily-analytical-table td {
+  border: 1px solid #ddd; /* Light border for a clean look */
+  padding: 8px;
+  text-align: center; /* Center-align text in cells */
+  word-wrap: break-word; /* Handle long text gracefully */
+}
+
+.daily-analytical-table th {
+  background-color: #007bff; /* Blue background for headers */
+  color: white; /* White text for headers */
+  font-weight: bold;
+}
+
+.daily-analytical-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternating row color */
+}
+
+.daily-analytical-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight on hover */
+}
+
+/* Add a title styling for better distinction */
+#daily-analytical-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #343a40;
+  font-weight: bold;
+}
+  
+  
+  
+  #daily-analytical-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.daily-analytical-table {
+  width: 90%; /* Compact width */
+  max-width: 600px; /* Restrict maximum width */
+  margin: 0 auto; /* Center the table */
+  border-collapse: collapse; /* Merge borders for a clean look */
+  font-size: 12px; /* Compact font size */
+  table-layout: auto; /* Adjust column width dynamically */
+  border: 1px solid #ddd; /* Add a border around the table */
+}
+
+.daily-analytical-table th,
+.daily-analytical-table td {
+  border: 1px solid #ddd; /* Add borders between cells */
+  padding: 8px; /* Padding for better readability */
+  text-align: center; /* Center-align text */
+  word-wrap: break-word; /* Prevent overflow text */
+}
+
+.daily-analytical-table th {
+  background-color: #007bff; /* Blue header */
+  color: white; /* White text for header */
+  font-weight: bold;
+}
+
+.daily-analytical-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light grey for alternating rows */
+}
+
+.daily-analytical-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight row on hover */
+}
+
+/* Table Title Styling */
+#daily-analytical-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #343a40;
+  font-weight: bold;
+}
+  
+  
+  @media only screen and (max-width: 768px) { /* For mobile screens */
+  .daily-analytical-table {
+    font-size: 10px; /* Smaller font for compact view */
+    width: 100%; /* Ensure the table fits within the screen */
+  }
+
+  .daily-analytical-table th,
+  .daily-analytical-table td {
+    padding: 5px; /* Reduce padding for compactness */
+  }
+
+  .daily-analytical-table th {
+    font-size: 12px; /* Slightly larger font for headers */
+  }
+}
+
+
+
+
+/* Cumulative Analysis Section Styling */
+#tilapia-cumulative-analysis {
+  display: none;
+  margin-top: 20px;  /* Ensure there is space above the section */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Analysis section titles */
+#tilapia-cumulative-analysis .section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: #1a73e8;
+}
+
+/* Update the cumulative and average sections to add space */
+#cumulative-tilapia-150,
+#cumulative-tilapia-120,
+#cumulative-total,
+#avg-tilapia-150,
+#avg-tilapia-120,
+#avg-total {
+  background-color: #e3f2fd; /* Light Blue for Cumulative and Averages */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 10px;  /* Add space between the sections */
+}
+
+#total-unique-days,
+#date-range {
+  background-color: #d1c4e9; /* Light Purple for Date Analysis */
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Add space between Date Analysis and others */
+}
+
+/* Hover effect for the info box */
+.info-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #e8f4fd;
+  cursor: pointer;
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: #1a73e8;
+}
+
+/* Add padding to ensure good spacing within the section */
+#date-analysis {
+  padding: 20px;
+  background-color: #eaf2ff;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#date-analysis h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;  /* Ensure the main container takes up most of the screen */
+  }
+  
+  #tilapia-cumulative-analysis {
+    padding: 10px;
+  }
+
+  /* Adjust the table and info box styles */
+  .daily-analytical-table {
+    font-size: 10px; /* Smaller font for compact view */
+    width: 100%; /* Ensure the table fits within the screen */
+  }
+
+  .daily-analytical-table th,
+  .daily-analytical-table td {
+    padding: 5px; /* Reduce padding for compactness */
+  }
+
+  .daily-analytical-table th {
+    font-size: 12px; /* Slightly larger font for headers */
+  }
+}
+
+@media (max-width: 480px) {
+  .info-box p {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  #view-analysis-btn {
+    width: 100%; /* Make the button full-width on smaller screens */
+    padding: 15px 20px; /* Ensure good touch size for mobile */
+  }
+}
+
+
+
+
+#toggle-analysis-btn {
+  width: 100px; /* Fixed width */
+  height: 100px; /* Same height as width for a perfect circle */
+  padding: 0; /* Remove padding as width and height control size */
+  border: none;
+  border-radius: 50%; /* Makes the button a circle */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Font weight */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* 3D shadow effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggle-analysis-btn:hover {
+  background-color: #0056b3; /* Darker shade when hovering */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover for 3D effect */
+}
+
+#toggle-analysis-btn:active {
+  transform: translateY(2px); /* Button appears to "press down" when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15); /* Subtle shadow on click */
+}
+
+
+
+
+
+
+#view-stock-management-btn {
+  width: 70px; /* Reduced width */
+  height: 80px; /* Reduced height */
+  background-color: #e0a800; /* Button background color */
+  color: white; /* Text color */
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold; /* Font weight */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Slight rounding for a modern effect */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* 3D shadow effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#view-stock-management-btn:hover {
+  background-color: #d18a00; /* Slightly darker shade when hovering */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover for 3D effect */
+}
+
+#view-stock-management-btn:active {
+  transform: translateY(2px); /* Button appears to "press down" when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15); /* Subtle shadow on click */
+}
+
+
+
+
+
+
+#history-button {
+  width: 80px; /* Set the width of the button */
+  height: 80px; /* Set the height of the button to match the width, making it a perfect circle */
+  background-color: #ff4d4d; /* Red background color */
+  color: white; /* White text */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make the text bold */
+  border: none; /* Remove the default border */
+  border-radius: 50%; /* Make it a circle */
+  display: flex; /* Use flexbox to center the text */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#history-button:hover {
+  background-color: #e60000; /* Darker red when hovered */
+}
+
+#history-button:active {
+  transform: translateY(2px); /* Button appears to "press down" when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+}
+
+
+
+
+
+#view-analysis-btn {
+  width: 100px; /* Set the width of the button */
+  height: 100px; /* Set the height of the button to match the width, making it a perfect circle */
+  background-color: #f31010; /* Blue background color */
+  color: white; /* White text */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make the text bold */
+  border: none; /* Remove the default border */
+  border-radius: 50%; /* Make it a circle */
+  display: flex; /* Use flexbox to center the text */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  margin-left: 130px;
+}
+
+#view-analysis-btn:hover {
+  background-color: #921212; /* Darker blue when hovered */
+}
+
+#view-analysis-btn:active {
+  transform: translateY(2px); /* Button appears to "press down" when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+}

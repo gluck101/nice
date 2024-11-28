@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>BEST OF B</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablet B ONLY</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  
+  
+  
+  
+  
+  
+  
+  
+  <style>
+/* Main container for the stock management */
+
+
+/* Title style */
+h4 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Centered section titles with different colors */
+.section-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+.section-title-1 {
+  color: #4CAF50; /* Green color for the first set of sections */
+}
+
+.section-title-2 {
+  color: #FF9800; /* Orange color for the second set of sections */
+}
+
+/* Flex layout for form fields */
+.section {
+  margin-bottom: 15px; /* Reduced space between sections */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for each input group (two fields per row) */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Reduced space between fields */
+  flex-wrap: wrap; /* Allow fields to wrap on smaller screens */
+}
+
+/* Labels */
+.input-group label {
+  width: 48%; /* Reduced width of labels for a tighter layout */
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.input-group input {
+  width: 48%; /* Reduced width of input fields for a tighter layout */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Styling for the readonly input fields (e.g., Sold Tilapia) */
+input[readonly] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Optional: Adding some hover effect for inputs to indicate interactivity */
+.input-group input:not([readonly]):hover {
+  border-color: #4CAF50;
+  transition: border-color 0.3s ease;
+}
+
+/* Alternate section background for visual separation */
+.section:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column; /* Stack labels and inputs vertically on smaller screens */
+  }
+
+  .input-group label, .input-group input {
+    width: 100%; /* Ensure full width for mobile */
+  }
+}
+    
+    
+    
+    /* Initially hide the Stock Management section */
+.hidden {
+  display: none;
+}
+
+/* Style for the main content */
+#main-content {
+  margin: 20px;
+}
+
+/* Style for the Stock Management section */
+#stock-management {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Close Button Styles */
+#close-stock-management-btn {
+  background-color: #f44336; /* Red color for close */
+}
+
+#close-stock-management-btn:hover {
+  background-color: #e53935;
+}
+
+
+
+
+</style>
+
+  
+  
+  
+  <style>
+    
+    
+    .message-item {
+  background-color: #f0f0f5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+/* Main container for Voice Messaging */
+.voice-messaging-section {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Heading */
+.voice-messaging-section h3, 
+.voice-messaging-section h4 {
+  margin: 0 0 10px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Recording Container */
+.recording-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button#record-message-button {
+  background-color: #28a745;
+}
+
+button#record-message-button:hover {
+  background-color: #218838;
+}
+
+button#stop-message-button {
+  background-color: #dc3545;
+}
+
+button#stop-message-button:hover {
+  background-color: #c82333;
+}
+
+button#send-message-button {
+  background-color: #007bff;
+}
+
+button#send-message-button:hover {
+  background-color: #0056b3;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 80%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar #recording-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.1s ease-in-out;
+}
+
+/* Messages Container */
+.messages-container {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#incoming-messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-item {
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.message-item:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  position: relative;
+}
+
+.progress-bar #recording-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.1s linear; /* Smooth animation */
+}
+
+/* Recording Time Text */
+#recording-time-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+/* Container for incoming messages */
+#incoming-messages-container {
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Each message item */
+.message-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.message-item:hover {
+  transform: scale(1.02);
+}
+
+/* Message details */
+.message-item p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Audio player */
+.message-item audio {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* OK button */
+.ok-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0
+    
+    
+    
+}
+
+#daily-analytical-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.daily-analytical-table {
+  width: 90%; /* Adjust the width to make it compact */
+  max-width: 600px; /* Set a maximum width */
+  margin: 0 auto; /* Center the table horizontally */
+  border-collapse: collapse;
+  font-size: 12px; /* Smaller font size for compact design */
+  table-layout: auto; /* Ensure the table columns adjust dynamically */
+}
+
+.daily-analytical-table th,
+.daily-analytical-table td {
+  border: 1px solid #ddd; /* Light border for a clean look */
+  padding: 8px;
+  text-align: center; /* Center-align text in cells */
+  word-wrap: break-word; /* Handle long text gracefully */
+}
+
+.daily-analytical-table th {
+  background-color: #007bff; /* Blue background for headers */
+  color: white; /* White text for headers */
+  font-weight: bold;
+}
+
+.daily-analytical-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternating row color */
+}
+
+.daily-analytical-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight on hover */
+}
+
+/* Add a title styling for better distinction */
+#daily-analytical-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #343a40;
+  font-weight: bold;
+}
+  
+  
+  
+  #daily-analytical-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.daily-analytical-table {
+  width: 90%; /* Compact width */
+  max-width: 600px; /* Restrict maximum width */
+  margin: 0 auto; /* Center the table */
+  border-collapse: collapse; /* Merge borders for a clean look */
+  font-size: 12px; /* Compact font size */
+  table-layout: auto; /* Adjust column width dynamically */
+  border: 1px solid #ddd; /* Add a border around the table */
+}
+
+.daily-analytical-table th,
+.daily-analytical-table td {
+  border: 1px solid #ddd; /* Add borders between cells */
+  padding: 8px; /* Padding for better readability */
+  text-align: center; /* Center-align text */
+  word-wrap: break-word; /* Prevent overflow text */
+}
+
+.daily-analytical-table th {
+  background-color: #007bff; /* Blue header */
+  color: white; /* White text for header */
+  font-weight: bold;
+}
+
+.daily-analytical-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light grey for alternating rows */
+}
+
+.daily-analytical-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight row on hover */
+}
+
+/* Table Title Styling */
+#daily-analytical-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #343a40;
+  font-weight: bold;
+}
+  
+  
+  @media only screen and (max-width: 768px) { /* For mobile screens */
+  .daily-analytical-table {
+    font-size: 10px; /* Smaller font for compact view */
+    width: 100%; /* Ensure the table fits within the screen */
+  }
+
+  .daily-analytical-table th,
+  .daily-analytical-table td {
+    padding: 5px; /* Reduce padding for compactness */
+  }
+
+  .daily-analytical-table th {
+    font-size: 12px; /* Slightly larger font for headers */
+  }
+}
+    
+    </style>
+  
+  
+  
+
+
+  <style>
+    /* Container styling */
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Order Item and History Item Styling */
+    .order-item,
+    .order-history-item {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    /* Table Styling */
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .items-table th,
+    .items-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .items-table th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    /* Blinking animation */
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .blinking {
+      animation: blink 1s infinite;
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Button Colors */
+    .complete-order-button {
+      background-color: green;
+      color: white;
+    }
+
+    .cancel-order-button {
+      background-color: red;
+      color: white;
+    }
+
+    /* Status Colors */
+    .status-completed {
+      color: #28a745; /* Green for completed orders */
+      font-weight: bold;
+    }
+
+    .status-cancelled {
+      color: #dc3545; /* Red for cancelled orders */
+      font-weight: bold;
+    }
+
+    /* Timer and Extra Time Request */
+    .countdown-timer {
+      font-size: 18px;
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .extra-time {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* General Button Styling */
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #history-button {
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    #history-section {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    /* Styling for the Back to Main Button */
+.back-to-main-button {
+  background-color: #6f42c1; /* Purple background */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding for better appearance */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 15px; /* Add spacing above the button */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.back-to-main-button:hover {
+  background-color: #5a32a3; /* Darker purple on hover */
+}
+    
+    
+    
+    
+    /* Styling for the View Daily Analytical Button */
+.view-analytical-button {
+  background-color: #ffc107; /* Golden yellow background */
+  color: #343a40; /* Dark text for contrast */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding for better appearance */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.view-analytical-button:hover {
+  background-color: #e0a800; /* Slightly darker yellow on hover */
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* Analytical Section Container */
+#daily-analytical-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    /* Styling for the Home Button */
+.home-button {
+  background-color: #28a745; /* Green background */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding for better appearance */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 15px; /* Add spacing above the button */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.home-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+    
+  </style>
+  
+  
+  
+  
+  
+ 
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+
+  <script>
+    // Firebase configuration with correct API keys for "order to kitchen" Realtime Database
+    const firebaseConfig = {
+      apiKey: "AIzaSyADpwAEF3fW5lHmLeAROZUicntXhyv7obo",
+      authDomain: "order-to-kitchen.firebaseapp.com",
+      databaseURL: "https://order-to-kitchen-default-rtdb.firebaseio.com",
+      projectId: "order-to-kitchen",
+      storageBucket: "order-to-kitchen.appspot.com",
+      messagingSenderId: "850969106226",
+      appId: "1:850969106226:web:3c8e3efe31e7b28371692b",
+      measurementId: "G-LV04KC1NHT"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    
+    
+    
+    
+    
+    
+
+    
+  </script>
+
+ 
+</head>
+
+<body>
+  <div class="container">
+    <h2>Order Management - Tablet B</h2>
+
+    <!-- Incoming Orders Section -->
+    <div id="incoming-orders-section">
+      <h3>Incoming Orders</h3>
+      <div id="incoming-orders-container">
+        <!-- New orders will appear here -->
+      </div>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="voice-messaging-section">
+  <h3>Voice Messaging</h3>
+  
+  <!-- Recording & Sending Section -->
+  <div class="recording-container">
+    <button id="record-message-button" onclick="startMessageRecording()">🎙️ Start Recording</button>
+    <button id="stop-message-button" class="hidden" onclick="stopMessageRecording()">⏹️ Stop Recording</button>
+    
+    <!-- Progress Bar -->
+    <div id="recording-progress" class="progress-bar hidden">
+  <div id="recording-progress-fill"></div>
+</div>
+<p id="recording-time-text" class="hidden">Recording: 0 seconds</p>
+    
+    <audio id="message-audio-preview" controls class="hidden"></audio>
+    <button id="send-message-button" onclick="sendMessage()" class="hidden">📤 Send Message</button>
+    
+    
+    
+    
+  </div>
+  
+  <!-- Receiving Section -->
+  <div class="messages-container">
+    <h4>Incoming Messages</h4>
+    <div id="incoming-messages-container">
+      <!-- Incoming messages will appear here -->
+    </div>
+  </div>
+  
+</div>
+  
+
+
+
+
+<!-- Container for the 4 buttons -->
+<div class="button-container">
+  <!-- History Button -->
+  <button id="history-button" onclick="showHistorySection()">View Order History</button>
+
+  <!-- View Stock Management Button -->
+  <button id="view-stock-management-btn" style="background-color: #e0a800;">View Stock Management</button>
+
+  <!-- View Analysis Button -->
+  <!-- <button id="view-analysis-btn" style="background-color: #e7095f; color: white;">View Analysis</button> -->
+
+  <!-- Toggle Analysis Button -->
+  <button id="toggle-analysis-btn" class="toggle-btn">See Average Analytical</button>
+</div>
+
+
+
+
+
+
+
+
+    
+    
+    <!-- History Section -->
+<!-- <button id="history-button" onclick="showHistorySection()">View Order History</button> -->
+    
+    
+    
+    
+
+<div id="history-section" style="display: none;">
+  <h3>Order History</h3>
+  <div id="order-history-container">
+    <!-- Completed orders will appear here -->
+  </div>
+  
+  <button class="back-to-main-button" onclick="showMainSection()">Back to Main</button>
+  
+</div>
+
+
+    
+          
+          
+      
+          <!-- Analysis Section -->
+<div id="analysis-section" style="display: none; padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin-top: 20px;">
+  <h3>Order Items Analysis</h3>
+  <div id="items-display"></div>
+  <button id="go-back-btn" style="margin-top: 10px; background-color: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+    Go Back
+  </button>
+  
+  
+  
+          <!-- Section for Specific Analysis of Tilapia 120 and Tilapia 150 -->
+<div id="tilapia-analysis" style="margin-top: 20px;">
+  <h3></h3>
+  <div id="tilapia-table-display"></div>
+</div>
+  
+  
+</div>
+
+<!-- Button to Open the Analysis Section -->
+<button id="view-analysis-btn" style="background-color: #e7095f; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+  View Analysis
+</button>
+          
+            
+
+       
+     
+<!-- Main Content (Other sections) -->
+<div id="main-content">
+ 
+  <!-- Button to open the Stock Management -->
+  <!-- <button id="view-stock-management-btn" style="background-color: #e00000;" >View Stock Management</button> -->
+</div>
+
+<!-- Stock Management Form (Initially Hidden) -->
+<div id="stock-management" style="display: none;">
+  <h4>Stock Management</h4>
+  <form>
+    <!-- Previous Stock Section -->
+    <div class="section">
+      <h5 class="section-title section-title-1">Previous Stock</h5>
+      <div class="input-group">
+        <label for="previous-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="previous-tilapia-150" placeholder="Enter previous stock">
+        
+        <label for="previous-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="previous-tilapia-120" placeholder="Enter previous stock">
+      </div>
+    </div>
+
+    <!-- Purchased Stock Section -->
+    <div class="section">
+      <h5 class="section-title section-title-2">Purchased Stock</h5>
+      <div class="input-group">
+        <label for="purchased-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="purchased-tilapia-150" placeholder="Enter purchased stock">
+        
+        <label for="purchased-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="purchased-tilapia-120" placeholder="Enter purchased stock">
+      </div>
+    </div>
+
+    <!-- Tilapia For Light Soup Section -->
+    <div class="section">
+      <h5 class="section-title section-title-1">Tilapia For Light Soup</h5>
+      <div class="input-group">
+        <label for="light-soup-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="light-soup-tilapia-150" placeholder="Enter stock">
+        
+        <label for="light-soup-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="light-soup-tilapia-120" placeholder="Enter stock">
+      </div>
+    </div>
+
+    <!-- Damaged Tilapia Section -->
+    <div class="section">
+      <h5 class="section-title section-title-2">Damaged Tilapia</h5>
+      <div class="input-group">
+        <label for="damaged-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="damaged-tilapia-150" placeholder="Enter damaged stock">
+        
+        <label for="damaged-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="damaged-tilapia-120" placeholder="Enter damaged stock">
+      </div>
+    </div>
+
+    <!-- Sold Tilapia Section -->
+    <div class="section">
+      <h5 class="section-title section-title-1">Sold Tilapia</h5>
+      <div class="input-group">
+        <label for="sold-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="sold-tilapia-150" value="2" readonly>
+        
+        <label for="sold-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="sold-tilapia-120" value="5" readonly>
+      </div>
+    </div>
+
+    <!-- Available Tilapia Section -->
+    <div class="section">
+      <h5 class="section-title section-title-2">Available Tilapia</h5>
+      <div class="input-group">
+        <label for="available-tilapia-150">Tilapia 150:</label>
+        <input type="number" id="available-tilapia-150" placeholder="Enter available stock">
+        
+        <label for="available-tilapia-120">Tilapia 120:</label>
+        <input type="number" id="available-tilapia-120" placeholder="Enter available stock">
+      </div>
+    </div>
+    
+    <button type="button" id="close-stock-management-btn">Close</button>
+  </form>
+</div>
+
+
+<!-- Button to toggle the visibility of the analysis section -->
+<!-- <button id="toggle-analysis-btn" class="toggle-btn">See Average Analytical</button> -->
+
+  
+
+<!-- The Analysis Section (hidden by default) -->
+<div id="tilapia-cumulative-analysis" class="container" style="display: none;">
+  <h3 class="section-title">Cumulative Analysis</h3>
+  <div class="info-box">
+    <p id="cumulative-tilapia-150">Total Tilapia 150: 0</p>
+    <p id="cumulative-tilapia-120">Total Tilapia 120: 0</p>
+    <p id="cumulative-total">Total Combined (Tilapia 150 + 120): 0</p>
+  </div>
+
+  <h3 class="section-title">Average Sales Analysis</h3>
+  <div class="info-box">
+    <p id="avg-tilapia-150">Average Tilapia 150 per day: 0</p>
+    <p id="avg-tilapia-120">Average Tilapia 120 per day: 0</p>
+    <p id="avg-total">Average Combined per day: 0</p>
+  </div>
+
+  <div id="date-analysis" class="info-box">
+    <h3>Date Analysis</h3>
+    <p id="total-unique-days">Total Unique Days: 0</p>
+    <p id="date-range">Date Range: N/A</p>
+  </div>
+
+  <!-- Close Button -->
+  <button id="close-analysis-btn" class="close-btn">Close</button>
+</div>
+
+    
+    
+    
+    
+
+    
+    
+   
+          
+   
+                 
+    
+    
+<script>
+  // Fetch Incoming Orders
+  function fetchOrders() {
+    const incomingOrdersContainer = document.getElementById('incoming-orders-container');
+    incomingOrdersContainer.innerHTML = '';
+    db.ref('orders').on('child_added', snapshot => {
+      const orderData = snapshot.val();
+      const orderId = snapshot.key;
+      displayIncomingOrder(orderData, orderId);
+    });
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  // Display Incoming Order with Voice Note Playback
+  
+         
+  
+  
+   function displayIncomingOrder(orderData, orderId) {
+  const incomingOrdersContainer = document.getElementById('incoming-orders-container');
+  const orderDiv = document.createElement('div');
+  orderDiv.classList.add('order-item');
+  orderDiv.id = orderId;
+
+  // Build the items table
+  let itemsTable = `<table class="items-table"><tr><th>Item</th><th>Quantity</th></tr>`;
+  orderData.items.forEach(item => {
+    itemsTable += `<tr><td>${item.name}</td><td>${item.quantity}</td></tr>`;
+  });
+  itemsTable += `</table>`;
+
+  // Populate the order details
+  orderDiv.innerHTML = `
+    <p><strong>Order ID:</strong> ${orderId}</p>
+    <p><strong>Order Time:</strong> ${orderData.orderTime || "N/A"}</p>
+    <p><strong>Staff Name:</strong> ${orderData.staffName}</p>
+    <p><strong>Type:</strong> ${orderData.dineInTakeout}</p>
+    ${itemsTable}
+    <select id="time-estimate-${orderId}" onchange="setEstimatedTime('${orderId}')">
+      <option>Select time</option>
+      <option value="1">1 minute</option>
+      <option value="2">2 minutes</option>
+      <option value="5">5 minutes</option>
+      <option value="10">10 minutes</option>
+      <option value="15">15 minutes</option>
+      <option value="30">30 minutes</option>
+      <option value="40">40 minutes</option>
+      <option value="60">1 hour</option>
+      <option value="90">1 hour 30 minutes</option>
+    </select>
+    <div id="countdown-timer-${orderId}" class="countdown-timer">Time Remaining: --:--</div>
+    <div id="extra-time-${orderId}" class="extra-time" style="display: none;">
+      <p>Request for extra time:</p>
+      <select id="extra-time-estimate-${orderId}" onchange="setExtraTime('${orderId}')">
+        <option>Select extra time</option>
+        <option value="1">1 minute</option>
+        <option value="2">2 minutes</option>
+        <option value="5">5 minutes</option>
+        <option value="10">10 minutes</option>
+        <option value="15">15 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="40">40 minutes</option>
+        <option value="60">1 hour</option>
+        <option value="90">1 hour 30 minutes</option>
+      </select>
+      <div id="extra-countdown-${orderId}" class="extra-countdown">Extra Time Countdown: --:--</div>
+    </div>
+    ${orderData.voiceNote ? `<audio controls src="${orderData.voiceNote}"></audio>` : '<p>No voice note available</p>'}
+    <button class="complete-order-button" onclick="completeOrder('${orderId}')">Complete Order</button>
+    <button class="cancel-order-button" onclick="cancelOrder('${orderId}')">Cancel Order</button>
+  `;
+
+  // Append the order to the container
+  incomingOrdersContainer.appendChild(orderDiv);
+
+  // Announce the order
+  announceOrder(orderData);
+}
+
+  
+  
+  
+  
+  
+
+
+      
+  
+  
+
+ 
+
+   function announceOrder(orderData) {
+  const message = `You have a new order from ${orderData.staffName || "a staff member"}. The order includes: ${orderData.items.map(item => `${item.quantity} ${item.name}`).join(", ")}. Please provide estimated time for this order.`;
+
+  function tryAnnounce() {
+    db.ref('ttsInProgress').once('value').then(snapshot => {
+      if (!snapshot.val()) {
+        db.ref('ttsInProgress').set(true).then(() => {
+          repeatAnnouncement(message, 3, 2000, () => {
+            db.ref('ttsInProgress').set(false);
+          });
+        });
+      } else {
+        setTimeout(tryAnnounce, 1000); // Retry after 1 second if TTS is busy
+      }
+    });
+  }
+
+  tryAnnounce();
+}
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  // Set estimated time in database and start countdown
+  function setEstimatedTime(orderId) {
+    const estimatedTime = document.getElementById(`time-estimate-${orderId}`).value;
+    if (estimatedTime) {
+      db.ref(`orders/${orderId}`).update({ estimatedTime })
+        .then(() => startCountdown(orderId, estimatedTime * 60))
+        .catch(error => console.error("Error setting estimated time:", error));
+    }
+  }
+
+  
+  
+  
+  // Start countdown timer
+   
+// Start countdown timer for initial time only
+
+
+    function startCountdown(orderId, seconds) {
+  const countdownDisplay = document.getElementById(`countdown-timer-${orderId}`);
+  let interval = setInterval(() => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    countdownDisplay.innerHTML = `Time Remaining: ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    seconds--;
+
+    if (seconds < 0) {
+      clearInterval(interval);
+      countdownDisplay.innerHTML = "Time's Up!";
+      countdownDisplay.classList.add("blinking"); // Add blinking effect
+      document.getElementById(`extra-time-${orderId}`).style.display = 'block'; // Show extra time option
+      
+      // Announce time up with TTS
+      announceTimeUp();
+    }
+  }, 1000);
+}
+  
+  
+  
+
+// Function to announce that time is up using TTS
+
+    
+  
+  
+
+  function announceOrder(orderData) {
+  const staffName = orderData.staffName || "a staff member";
+  const itemsDescription = orderData.items
+    .map(item => `${item.quantity} ${item.name}`)
+    .join(", ");
+  
+  // Message with additional prompt
+  const message = `You have a new order from ${staffName}. The order includes: ${itemsDescription}. Please provide estimated time for this order.`;       // Function to speak the message with a delay between repetitions
+  function repeatAnnouncement(times, delay) {
+    let count = 0;
+
+    function speakMessage() {
+      if (count < times) {
+        const utterance = new SpeechSynthesisUtterance(message);
+        utterance.lang = "en-US";
+        utterance.rate = 1; // Normal speaking rate
+        utterance.pitch = 1; // Normal pitch
+        utterance.onend = () => setTimeout(speakMessage, delay); // Wait before the next repetition
+        speechSynthesis.speak(utterance);
+        count++;
+      }
+    }    // Start the first announcement
+    speechSynthesis.cancel(); // Ensure no ongoing speech
+    speakMessage();
+  }
+
+  // Repeat the announcement three times with a 2-second delay between repetitions
+  repeatAnnouncement(10, 2000); // 2000 ms = 2 seconds delay
+} 
+         
+
+
+  
+  
+  
+  
+  
+  // Set extra time in database and start extra countdown
+  
+
+  // Set extra time in database and start extra countdown
+
+  // Set extra time in database and start extra countdown
+function setExtraTime(orderId) {
+  const extraTime = document.getElementById(`extra-time-estimate-${orderId}`).value;
+
+  if (extraTime) {
+    db.ref(`orders/${orderId}`).update({ extraTime })
+      .then(() => {
+        // Start the extra time countdown using the dedicated function
+        startExtraTimeCountdown(orderId, extraTime * 60); // Call `startExtraTimeCountdown` instead of `startCountdown`
+      })
+      .catch(error => console.error("Error setting extra time:", error));
+  }
+}
+  
+  
+  
+  
+  // Start a separate countdown for extra time
+
+  // Start a separate countdown for extra time
+function startExtraTimeCountdown(orderId, seconds) {
+  const extraCountdownDisplay = document.getElementById(`extra-countdown-${orderId}`);
+  let interval = setInterval(() => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    extraCountdownDisplay.innerHTML = `Extra Time Remaining: ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    seconds--;
+
+    if (seconds < 0) {
+      clearInterval(interval);
+      extraCountdownDisplay.innerHTML = "Extra Time is up!";
+      extraCountdownDisplay.classList.add("blinking"); // Make "Extra Time is up!" blink
+    }
+  }, 1000);
+}
+  
+  
+  // Complete order and move to history
+function completeOrder(orderId) {
+  const orderRef = db.ref(`orders/${orderId}`);
+  orderRef.once('value', snapshot => {
+    const orderData = snapshot.val();
+    if (orderData) {
+      const completedData = { ...orderData, status: "Completed", completedTimestamp: new Date().toISOString() };
+      db.ref(`orderHistory/${orderId}`).set(completedData)
+        .then(() => {
+          orderRef.remove();
+          alert("Order has been moved to the history section."); // Show confirmation message
+          document.getElementById(orderId).remove(); // Remove order div from the page
+        })
+        .catch(error => console.error("Error completing order:", error));
+    }
+  });
+}
+
+// Cancel order and move to history
+function cancelOrder(orderId) {
+  const orderRef = db.ref(`orders/${orderId}`);
+  orderRef.once('value', snapshot => {
+    const orderData = snapshot.val();
+    if (orderData) {
+      const cancelledData = { ...orderData, status: "Cancelled Order", cancelledTimestamp: new Date().toISOString() };
+      db.ref(`orderHistory/${orderId}`).set(cancelledData)
+        .then(() => {
+          orderRef.remove();
+          alert("Order has been moved to the history section."); // Show confirmation message
+          document.getElementById(orderId).remove(); // Remove order div from the page
+        })
+        .catch(error => console.error("Error canceling order:", error));
+    }
+  });
+}
+  
+      
+  
+  
+  
+  
+  
+  
+  // Show history section
+  function showHistorySection() {
+    document.getElementById('incoming-orders-section').style.display = 'none';
+    document.getElementById('history-section').style.display = 'block';
+    fetchOrderHistory();
+  }
+
+  // Show main section
+  function showMainSection() {
+    document.getElementById('history-section').style.display = 'none';
+    document.getElementById('incoming-orders-section').style.display = 'block';
+  }
+  
+  
+  
+  // Show history section
+  
+  
+
+
+  
+// Event listeners for toggling the Analysis section
+const viewAnalysisBtn = document.getElementById('view-analysis-btn');
+const analysisSection = document.getElementById('analysis-section');
+const goBackBtn = document.getElementById('go-back-btn');
+
+viewAnalysisBtn.addEventListener('click', () => {
+  analysisSection.style.display = 'block';
+  fetchAndMergeOrderItems(); // Fetch and display data when the section is opened
+  viewAnalysisBtn.style.display = 'none'; // Hide the "View Analysis" button
+});
+
+goBackBtn.addEventListener('click', () => {
+  analysisSection.style.display = 'none';
+  viewAnalysisBtn.style.display = 'block'; // Show the "View Analysis" button again
+});
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  // Declare global variables for Tilapia totals
+let tilapia120Total = 0;
+let tilapia150Total = 0;
+
+function fetchAndMergeOrderItems() {
+  const dbRef = db.ref('orderHistory'); // Reference the 'orderHistory' node
+
+  console.log("Fetching orders and merging all items...");
+
+  dbRef.once('value', snapshot => {
+    if (!snapshot.exists()) {
+      console.error("No orders found in the 'orderHistory' node!");
+      return;
+    }
+
+    // Retrieve all orders
+    const orders = snapshot.val();
+    console.log("Orders Retrieved:", orders);
+
+    const displayContainer = document.getElementById('items-display');
+    if (!displayContainer) {
+      console.error("Display container not found!");
+      return;
+    }
+
+    // Clear any existing content
+    displayContainer.innerHTML = '';
+
+    // Group orders by date
+    const groupedOrders = {};
+    Object.entries(orders).forEach(([orderId, orderData]) => {
+      // Ignore the order if its status is "Cancelled Order"
+      if (orderData.status === "Cancelled Order") {
+        console.log(`Skipping cancelled order: ${orderId}`);
+        return;
+      }
+
+      // Extract the order date (from timestamp or completedTimestamp)
+      const orderDate = new Date(orderData.timestamp || orderData.completedTimestamp).toLocaleDateString();
+
+      if (!groupedOrders[orderDate]) {
+        groupedOrders[orderDate] = [];
+      }
+      groupedOrders[orderDate].push(orderData);
+    });
+
+    // Iterate through each date and generate tables
+    Object.entries(groupedOrders).forEach(([date, ordersForDate]) => {
+      // Create a section for this date
+      const dateSection = document.createElement('div');
+      dateSection.style.marginBottom = '30px';
+
+      const dateHeading = document.createElement('h3');
+      dateHeading.textContent = `Date: ${date}`;
+      dateHeading.style.marginBottom = '15px';
+      dateSection.appendChild(dateHeading);
+
+      // Create a map to store merged items and their quantities
+      const itemMap = {};
+      let tilapia120Total = 0; // Combined Tilapia 100 and 120 for that day
+      let tilapia150Total = 0;
+
+      // Process orders for this date
+      ordersForDate.forEach(orderData => {
+        if (orderData.items && Array.isArray(orderData.items)) {
+          orderData.items.forEach(item => {
+            // Merge all items into itemMap
+            if (itemMap[item.name]) {
+              itemMap[item.name] += item.quantity;
+            } else {
+              itemMap[item.name] = item.quantity;
+            }
+
+            // Aggregate "Tilapia 100" and "Tilapia 120" under Tilapia 120 for that day
+            if (item.name.includes("Tilapia 100") || item.name.includes("Tilapia 120")) {
+              tilapia120Total += item.quantity;
+            } else if (item.name.includes("Tilapia 150")) {
+              tilapia150Total += item.quantity;
+            }
+          });
+        }
+      });
+
+      // Create the main table for all merged items
+      const table = document.createElement('table');
+      table.style.width = '100%';
+      table.style.borderCollapse = 'collapse';
+      table.style.marginTop = '10px';
+      table.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+      table.style.backgroundColor = '#fff';
+
+      const headerRow = document.createElement('tr');
+      ['S/N', 'Items', 'Total Quantity'].forEach(heading => {
+        const th = document.createElement('th');
+        th.textContent = heading;
+        th.style.padding = '12px';
+        th.style.border = '1px solid #ddd';
+        th.style.backgroundColor = '#4CAF50';
+        th.style.color = '#fff';
+        th.style.fontWeight = 'bold';
+        th.style.textAlign = 'center';
+        headerRow.appendChild(th);
+      });
+      table.appendChild(headerRow);
+
+      // Populate the main table with merged items
+      const mergedItems = Object.entries(itemMap);
+      mergedItems.forEach(([itemName, itemQuantity], index) => {
+        const row = document.createElement('tr');
+        row.style.border = '1px solid #ddd';
+
+        const snCell = document.createElement('td');
+        snCell.textContent = index + 1;
+        snCell.style.padding = '12px';
+        snCell.style.textAlign = 'center';
+        snCell.style.border = '1px solid #ddd';
+        row.appendChild(snCell);
+
+        const itemCell = document.createElement('td');
+        itemCell.textContent = itemName;
+        itemCell.style.padding = '12px';
+        itemCell.style.border = '1px solid #ddd';
+        row.appendChild(itemCell);
+
+        const quantityCell = document.createElement('td');
+        quantityCell.textContent = itemQuantity;
+        quantityCell.style.padding = '12px';
+        quantityCell.style.textAlign = 'center';
+        quantityCell.style.border = '1px solid #ddd';
+        row.appendChild(quantityCell);
+
+        table.appendChild(row);
+      });
+
+      dateSection.appendChild(table);
+
+      // Add heading for the Tilapia Analysis table
+      const tilapiaHeading = document.createElement('h4');
+      tilapiaHeading.textContent = 'Specific Analysis: Tilapia 120 and Tilapia 150';
+      tilapiaHeading.style.marginTop = '20px';
+      dateSection.appendChild(tilapiaHeading);
+
+      // Create a separate table for Tilapia analysis for that day
+      const tilapiaTable = document.createElement('table');
+      tilapiaTable.style.width = '100%';
+      tilapiaTable.style.borderCollapse = 'collapse';
+      tilapiaTable.style.marginTop = '10px';
+      tilapiaTable.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+      tilapiaTable.style.backgroundColor = '#fff';
+
+      const tilapiaHeaderRow = document.createElement('tr');
+      ['Item', 'Total Quantity'].forEach(heading => {
+        const th = document.createElement('th');
+        th.textContent = heading;
+        th.style.padding = '12px';
+        th.style.border = '1px solid #ddd';
+        th.style.backgroundColor = '#FF9800';
+        th.style.color = '#fff';
+        th.style.fontWeight = 'bold';
+        th.style.textAlign = 'center';
+        tilapiaHeaderRow.appendChild(th);
+      });
+      tilapiaTable.appendChild(tilapiaHeaderRow);
+
+      // Populate the Tilapia analysis table for that day
+      const tilapiaRows = [
+        { name: 'Tilapia 120 (Includes Tilapia 100)', quantity: tilapia120Total },
+        { name: 'Tilapia 150', quantity: tilapia150Total },
+      ];
+
+      tilapiaRows.forEach(item => {
+        const row = document.createElement('tr');
+        row.style.border = '1px solid #ddd';
+
+        const itemCell = document.createElement('td');
+        itemCell.textContent = item.name;
+        itemCell.style.padding = '12px';
+        itemCell.style.border = '1px solid #ddd';
+        row.appendChild(itemCell);
+
+        const quantityCell = document.createElement('td');
+        quantityCell.textContent = item.quantity;
+        quantityCell.style.padding = '12px';
+        quantityCell.style.textAlign = 'center';
+        quantityCell.style.border = '1px solid #ddd';
+        row.appendChild(quantityCell);
+
+        tilapiaTable.appendChild(row);
+      });
+
+      // Append the Tilapia analysis table to the section
+      dateSection.appendChild(tilapiaTable);
+
+      // Append the section for this date to the display container
+      displayContainer.appendChild(dateSection);
+
+      // Update Sold Tilapia fields with the calculated totals for that day
+      document.getElementById('sold-tilapia-120').value = tilapia120Total;
+      document.getElementById('sold-tilapia-150').value = tilapia150Total;
+    });
+  }).catch(error => {
+    console.error("Error fetching and merging orders:", error);
+  });
+}
+
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  // Fetch Order History with Voice Note Playback
+  function fetchOrderHistory() {
+    const orderHistoryContainer = document.getElementById("order-history-container");
+    orderHistoryContainer.innerHTML = '';
+
+    db.ref('orderHistory').on('child_added', snapshot => {
+      const orderData = snapshot.val();
+      const orderDiv = document.createElement('div');
+      orderDiv.classList.add('order-history-item');
+
+      const statusClass = orderData.status === "Completed" ? "status-completed" : "status-cancelled";
+
+      let itemsTable = `
+        <table class="items-table">
+          <tr><th>Item</th><th>Quantity</th></tr>
+          ${orderData.items.map(item => `<tr><td>${item.name}</td><td>${item.quantity}</td></tr>`).join('')}
+        </table>
+      `;
+
+      
+      
+      
+      
+      
+      
+      
+      const orderTime = orderData.timestamp ? new Date(orderData.timestamp).toLocaleString() : "N/A";
+      const completedTime = orderData.completedTimestamp ? new Date(orderData.completedTimestamp).toLocaleString() : null;
+      const cancelledTime = orderData.cancelledTimestamp ? new Date(orderData.cancelledTimestamp).toLocaleString() : null;
+
+      orderDiv.innerHTML = `
+        <p><strong>Order ID:</strong> ${snapshot.key}</p>
+        <p><strong>Order Time:</strong> ${orderData.orderTime || "N/A"}</p>
+        <p><strong>Timestamp:</strong> ${orderTime}</p>
+        <p><strong>Staff Name:</strong> ${orderData.staffName}</p>
+        <p><strong>Type:</strong> ${orderData.dineInTakeout}</p>
+        <p><strong>Status:</strong> <span class="${statusClass}">${orderData.status || "Completed"}</span></p>
+        <p><strong>Estimated Time:</strong> ${orderData.estimatedTime || "N/A"} minutes</p>
+        <p><strong>Extra Time:</strong> ${orderData.extraTime || "N/A"} minutes</p>
+        ${itemsTable}
+        ${orderData.voiceNote ? `<audio controls src="${orderData.voiceNote}"></audio>` : '<p>No voice note available</p>'}
+      `;
+
+      // Display completion or cancellation timestamp if available
+      if (completedTime) {
+        orderDiv.innerHTML += `<p><strong>Completed At:</strong> ${completedTime}</p>`;
+      }
+      if (cancelledTime) {
+        orderDiv.innerHTML += `<p><strong>Cancelled At:</strong> ${cancelledTime}</p>`;
+      }
+
+      orderHistoryContainer.appendChild(orderDiv);
+    });
+  }
+
+  // Initialize page on load
+  window.onload = function() {
+    fetchOrders();
+  };
+  
+  
+  
+  
+  
+  // Start recording message
+
+let recordingInterval; // Interval for updating the progress bar
+let recordingSeconds = 0; // Time in seconds
+
+// Start recording with progress bar
+async function startMessageRecording() {
+  messageAudioChunks = [];
+  recordingSeconds = 0; // Reset time
+  document.getElementById('recording-progress').classList.remove('hidden');
+  document.getElementById('recording-time-text').classList.remove('hidden');
+  updateRecordingProgress();
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    messageMediaRecorder = new MediaRecorder(stream);
+    messageMediaRecorder.ondataavailable = event => messageAudioChunks.push(event.data);
+    messageMediaRecorder.onstop = () => {
+      const audioBlob = new Blob(messageAudioChunks, { type: 'audio/wav' });
+      const reader = new FileReader();
+      reader.readAsDataURL(audioBlob);
+      reader.onloadend = () => {
+        messageAudioBase64 = reader.result;
+        document.getElementById('message-audio-preview').src = messageAudioBase64;
+        document.getElementById('message-audio-preview').classList.remove("hidden");
+        document.getElementById('send-message-button').classList.remove("hidden");
+      };
+    };
+
+    messageMediaRecorder.start();
+    document.getElementById('record-message-button').classList.add('hidden');
+    document.getElementById('stop-message-button').classList.remove('hidden');
+  } catch (error) {
+    console.error("Microphone access denied or error:", error);
+    alert("Please enable microphone access to record messages.");
+  }
+}
+
+// Stop recording and reset progress
+function stopMessageRecording() {
+  if (messageMediaRecorder) {
+    messageMediaRecorder.stop();
+    document.getElementById('record-message-button').classList.remove('hidden');
+    document.getElementById('stop-message-button').classList.add('hidden');
+    document.getElementById('recording-progress').classList.add('hidden');
+    document.getElementById('recording-time-text').classList.add('hidden');
+    clearInterval(recordingInterval);
+  }
+}
+  
+  
+  
+  
+  
+  
+  
+
+// Update progress bar and text
+function updateRecordingProgress() {
+  const progressBarFill = document.getElementById('recording-progress-fill');
+  const timeText = document.getElementById('recording-time-text');
+  
+  recordingInterval = setInterval(() => {
+    recordingSeconds++; // Increment time
+    timeText.textContent = `Recording: ${recordingSeconds} seconds`;
+
+    // Update progress bar (assumes max 60 seconds recording, adjust as needed)
+    const progressPercent = Math.min((recordingSeconds / 60) * 100, 100);
+    progressBarFill.style.width = `${progressPercent}%`;
+
+    // Stop progress if it reaches the limit (optional)
+    if (recordingSeconds >= 60) {
+      clearInterval(recordingInterval);
+      stopMessageRecording();
+      alert("Maximum recording time reached!");
+    }
+  }, 1000); // Update every second
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+   
+
+
+  
+  
+  
+  
+  function sendMessage() {
+  const senderId = "TabletB"; // Change to "TabletA" for the other tablet
+  if (!messageAudioBase64) {
+    alert("Please record a voice message before sending.");
+    return;
+  }
+
+  const messageData = {
+    sender: senderId,
+    timestamp: new Date().toISOString(),
+    voiceNote: messageAudioBase64
+  };
+
+  // Push the message to the Firebase database
+  db.ref('messages').push(messageData)
+    .then(() => {
+      alert("Message sent!");
+      resetMessageForm(); // Reset the UI after sending
+    })
+    .catch(error => {
+      console.error("Error sending message:", error);
+      alert("There was an error sending your message. Please try again.");
+    });
+}
+  
+  
+  // Reset message form and progress
+function resetMessageForm() {
+  // Reset audio data
+  messageAudioBase64 = "";
+  messageAudioChunks = [];
+  recordingSeconds = 0;
+
+  // Reset progress bar and time text
+  const progressBarFill = document.getElementById('recording-progress-fill');
+  const timeText = document.getElementById('recording-time-text');
+
+  progressBarFill.style.width = "0%"; // Reset progress bar width
+  timeText.textContent = "Recording: 0 seconds"; // Reset text display
+
+  // Hide elements
+  document.getElementById('message-audio-preview').classList.add("hidden");
+  document.getElementById('send-message-button').classList.add("hidden");
+  document.getElementById('recording-progress').classList.add("hidden");
+  timeText.classList.add("hidden");
+
+  // Clear recording interval if active
+  clearInterval(recordingInterval);
+
+  // Reset buttons
+  document.getElementById('record-message-button').classList.remove('hidden');
+  document.getElementById('stop-message-button').classList.add('hidden');
+}
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+
+   
+    
+function listenForIncomingMessages() {
+  const messagesContainer = document.getElementById('incoming-messages-container');
+  messagesContainer.innerHTML = ''; // Clear any existing messages
+  const thisTabletId = "TabletB"; // Set this tablet's ID
+
+  // Attach a listener to the 'messages' node in the database
+  db.ref('messages').on('child_added', snapshot => {
+    const messageData = snapshot.val();
+    const messageId = snapshot.key;
+
+    // Exclude messages sent by this tablet
+    if (messageData.sender === thisTabletId) return;
+
+    // Create a message element for display
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message-item');
+    messageDiv.id = `message-${messageId}`; // Set unique ID for the message
+
+    // Build the HTML content
+    messageDiv.innerHTML = `
+      <p><strong>Sender:</strong> ${messageData.sender}</p>
+      <p><strong>Received At:</strong> ${new Date(messageData.timestamp).toLocaleString()}</p>
+      <audio controls src="${messageData.voiceNote}"></audio>
+      <button onclick="removeMessage('${messageId}')" class="ok-button">OK</button>
+    `;
+
+    // Add the new message to the container
+    messagesContainer.appendChild(messageDiv);
+
+    // Announce the new message
+    announceNewMessage();
+  });
+
+  // Display "No messages yet" if the container is empty
+  db.ref('messages').on('value', snapshot => {
+    if (!snapshot.exists()) {
+      messagesContainer.innerHTML = '<p>No messages yet.</p>';
+    }
+  });
+}
+
+// Function to announce a new message using TTS
+function announceNewMessage() {
+  const message = "You have a new message from the restaurant.";
+
+  function repeatAnnouncement(times, delay) {
+    let count = 0;
+
+    function speakMessage() {
+      if (count < times) {
+        const utterance = new SpeechSynthesisUtterance(message);
+        utterance.lang = "en-US";
+        utterance.rate = 1; // Normal speaking rate
+        utterance.pitch = 1; // Normal pitch
+        utterance.onend = () => setTimeout(speakMessage, delay); // Wait before the next repetition
+        speechSynthesis.speak(utterance);
+        count++;
+      }
+    }
+
+    // Start the first announcement
+    speechSynthesis.cancel(); // Ensure no ongoing speech
+    speakMessage();
+  }
+
+  // Repeat the announcement three times with a 2-second delay between repetitions
+  repeatAnnouncement(3, 2000); // 3 repetitions, 2 seconds apart
+}
+  
+  
+  
+  
+  
+// Function to remove a message from the UI and database
+function removeMessage(messageId) {
+  // Confirm removal
+  const confirmation = confirm("Are you sure you want to delete this message?");
+  if (!confirmation) return;
+
+  // Remove the message from the database
+  db.ref(`messages/${messageId}`).remove()
+    .then(() => {
+      // Remove the message from the UI
+      const messageDiv = document.getElementById(`message-${messageId}`);
+      if (messageDiv) {
+        messageDiv.remove();
+      }
+      alert("Message deleted successfully.");
+    })
+    .catch(error => {
+      console.error("Error deleting message:", error);
+      alert("Failed to delete message. Please try again.");
+    });
+}
+  window.onload = function () {
+  // Initialize listeners on page load
+  fetchOrders();
+  listenForIncomingMessages();
+};
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+    
+    
+
+    
+
+ 
+     
+   
+
+     
+  
+  
+  
+
+
+  
+      
+
+
+
+  
+    
+  
+      
+
+
+  
+
+  
+        
+      
+  
+  
+  
+  
+  
+
+    
+      
+  
+  
+      
+  
+    
+      
+
+      
+    
+    
+
+    
+
+
+    
+    
+    
+
+    
+
+     
+    
+     
+
+    
+    
+  
+
+  
+  
+  
+  
+  
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
